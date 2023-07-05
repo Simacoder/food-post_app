@@ -18,8 +18,7 @@ significantly reducing food wastage across Africa.
 
 # Usage
 - Clone it!
-
-  clone https://github.com/Simacoder/food-post_app.git
+  git clone https://github.com/Simacoder/food-post_app.git
 - Install dependenceis 
   npm install (or yarn install)
 - Run the app
