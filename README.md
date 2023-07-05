@@ -11,7 +11,7 @@ significantly reducing food wastage across Africa.
   ## Backend 
 - Flask (framework)
 - MySQL (database)
-  ## Frontend
+## Frontend
 - React JS
 - HTML5
 - CSS3
