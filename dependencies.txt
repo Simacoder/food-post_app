@@ -1,0 +1,12 @@
+express
+ejs
+bcrypt
+express-flash
+express-session
+method-override
+passport 
+passport-local
+node 
+cors 
+mysql
+bootstrap

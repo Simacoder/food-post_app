@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "appStart",
+			"path": "backend",
+			"problemMatcher": [],
+			"label": "npm: appStart - backend",
+			"detail": "nodemon server.js"
+		}
+	]
+}
