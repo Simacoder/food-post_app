@@ -27,6 +27,7 @@ const Navbar = () => {
                 <li><a href='/feature'>Features</a></li>
                 <li><a href='/aboutbox'>About</a></li>
                 <li><a href='/dashboard'>Dashboard</a></li>
+                <li><a href='/requests'>Request</a></li>
                 <li><a href='/download'>Download</a></li>
                 <li><a href='/signup'>Sign up</a></li>
             </ul>

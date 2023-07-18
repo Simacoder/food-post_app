@@ -11,6 +11,7 @@ import Dashboard from './Components/DashBoard';
 import SignUp from './Components/SignUp';
 import Login from './Components/Login';
 import Download from './Components/Download';
+import Requests from './Components/Requests';
 
 
 const router = createBrowserRouter([{
@@ -34,6 +35,11 @@ const router = createBrowserRouter([{
     path: "dashboard",
     element: <Dashboard/>,
   },
+  {
+    path: "requests",
+    element: <Requests/>,
+  },
+
 
   {
     path: "download",
