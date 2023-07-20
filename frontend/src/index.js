@@ -12,6 +12,8 @@ import SignUp from './Components/SignUp';
 import Login from './Components/Login';
 import Download from './Components/Download';
 import Requests from './Components/Requests';
+import Donate from './Components/Donate';
+import Volunteer from './Components/Volunteer';
 
 
 const router = createBrowserRouter([{
@@ -40,16 +42,24 @@ const router = createBrowserRouter([{
     element: <Requests/>,
   },
 
+  {
+    path: "donate",
+    element: <Donate/>,
+  },
 
   {
     path: "download",
     element: <Download/>,
   },
 
-
   {
     path: "signup",
     element: <SignUp/>,
+  },
+
+  {
+    path: "volunteer",
+    element: <Volunteer/>,
   },
   {
     path: "login",

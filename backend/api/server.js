@@ -1,4 +1,4 @@
-const express = require('express')
+const express = require("express")
 const bodyParser = require('body-parser')
 const mysql = require("mysql");
 const server = express();
@@ -26,7 +26,7 @@ db.connect(function (error) {
 
 //Establish the Port
 
-  server.listen(8085,function check(error) {
+  server.listen(8088, function check(error) {
     if (error) 
     {
     console.log("Error....!!!!");
@@ -34,26 +34,23 @@ db.connect(function (error) {
 
     else 
     {
-        console.log("Started....!!!! 8085");
+        console.log("Started....!!!! 8088");
 
     }
 });
 
 //Create the Records
 
-server.post("/api/food/add", (req, res) => {
-    let details = {
-      stname: req.body.stname,
-      meal: req.body.meal,
-      fee: req.body.fee,
-    };
-    let sql = "INSERT INTO food SET ?";
-    db.query(sql, details, (error) => {
-      if (error) {
-        res.send({ status: false, message: "Food created Failed" });
-      } else {
-        res.send({ status: true, message: "Food created successfully" });
-      }
+server.post("/api/requestdb/add", (req, res) => {
+    var details = [
+      req.body.stname,
+      req.body.meal,
+      req.body.fee
+    ];
+    var sql = "INSERT INTO requestdb (stname, meal, fee) VALUES ('lEBO', 'Uncoked', 79)";
+  db.query(sql, function (err, details) {
+    if (err) throw err;
+    console.log("1 record inserted");
     });
   });
 
@@ -61,8 +58,8 @@ server.post("/api/food/add", (req, res) => {
 
 //view the Records
 
-server.get("/api/food", (req, res) => {
-    var sql = "SELECT * FROM food";
+server.get("/api/requestdb", (req, res) => {
+    var sql = "SELECT * FROM requestdb";
     db.query(sql, function (error, result) {
       if (error) {
         console.log("Error Connecting to DB");
@@ -75,9 +72,9 @@ server.get("/api/food", (req, res) => {
 
 //Search the Records
 
-server.get("/api/food/:id", (req, res) => {
+server.get("/api/requestdb/:id", (req, res) => {
     var foodid = req.params.id;
-    var sql = "SELECT * FROM food WHERE id=" + foodid;
+    var sql = "SELECT * FROM requestdb WHERE id=" + foodid;
     db.query(sql, function (error, result) {
       if (error) {
         console.log("Error Connecting to DB");
@@ -91,9 +88,9 @@ server.get("/api/food/:id", (req, res) => {
 
 //Update the Records
 
-server.put("/api/food/update/:id", (req, res) => {
+server.put("/api/requestdb/update/:id", (req, res) => {
     let sql =
-      "UPDATE food SET stname='" +
+      "UPDATE requestdb SET stname='" +
       req.body.stname +
       "', meal='" +
       req.body.meal +
@@ -115,8 +112,8 @@ server.put("/api/food/update/:id", (req, res) => {
 
   //Delete the Records
 
-  server.delete("/api/food/delete/:id", (req, res) => {
-    let sql = "DELETE FROM food WHERE id=" + req.params.id + "";
+  server.delete("/api/requestdb/delete/:id", (req, res) => {
+    let sql = "DELETE FROM requestdb WHERE id=" + req.params.id + "";
     let query = db.query(sql, (error) => {
       if (error) {
         res.send({ status: false, message: "Food Deleted Failed" });

@@ -21,7 +21,7 @@ useEffect(() => {
   async function  Load()
   {
      const result = await axios.get(
-         "http://localhost:80/api/foods/");
+         "http://localhost:8088/api/requestdb/");
          setUsers(result.data.data);
          console.log(result.data);
   }
@@ -32,7 +32,7 @@ useEffect(() => {
         event.preventDefault();
     try
         {
-         await axios.post("http://localhost:80/api/foods/add",
+         await axios.post("http://localhost:8088/api/requestdb/add",
         {
         
           stname: stname,
@@ -48,7 +48,7 @@ useEffect(() => {
         }
     catch(err)
         {
-          alert("User Registration Failed");
+          alert("Food Request Failed");
         }
    }
    async function editFood(foods)
@@ -66,7 +66,7 @@ useEffect(() => {
    async function DeleteFoods(id)
    {
        
-        await axios.delete("http://localhost:80/api/food/delete/" + id); 
+        await axios.delete("http://localhost:8088/api/requestdb/delete/" + id); 
         alert("Food deleted Successfully");
         Load();
    
@@ -81,7 +81,7 @@ useEffect(() => {
    try
        {
         
-        await axios.put("http://localhost:80/api/food/update/"+ foods.find(u => u.id === id).id || id,
+        await axios.put("http://localhost:8088/api/requestdb/update/"+ foods.find(u => u.id === id).id || id,
        {
          id: id,
          stname: stname,
@@ -127,7 +127,7 @@ useEffect(() => {
                 />
               </div>
               <div class="form-group">
-                <label><strong>Meal</strong></label>
+                <label><strong>Cook or unCook</strong></label>
                 <input  type="text" class="form-control" id="meal" 
                  value={meal}
                   onChange={(event) =>
@@ -138,7 +138,7 @@ useEffect(() => {
               </div>
 
               <div class="form-group">
-                <label><strong>Fee</strong></label>
+                <label><strong>How many bags</strong></label>
                 <input type="text" class="form-control" id="fee" 
                   value={fee}
                 onChange={(event) =>
@@ -160,24 +160,24 @@ useEffect(() => {
     <tr>
       <th scope="col">Food Id</th>
       <th scope="col">Food Name</th>
-      <th scope="col">Meal</th>
-      <th scope="col">Fee</th>
+      <th scope="col">Cook or uncooked</th>
+      <th scope="col">How many Bags</th>
       
       <th scope="col">Option</th>
     </tr>
   </thead>
-       {foods.map(function fn(food)
+       {foods.map(function fn(requestdb)
        {
             return(
             <tbody>
                 <tr>
-                <th scope="row">{food.id} </th>
-                <td>{food.stname}</td>
-                <td>{food.meal}</td>
-                <td>{food.fee}</td>        
+                <th scope="row">{requestdb.id} </th>
+                <td>{requestdb.stname}</td>
+                <td>{requestdb.meal}</td>
+                <td>{requestdb.fee}</td>        
                 <td>
-                    <button type="button" class="btn btn-warning"  onClick={() => editFood(food)} >Edit</button>  
-                    <button type="button" class="btn btn-danger" onClick={() => DeleteFoods(food.id)}>Delete</button>
+                    <button type="button" class="btn btn-warning"  onClick={() => editFood(requestdb)} >Edit</button>  
+                    <button type="button" class="btn btn-danger" onClick={() => DeleteFoods(requestdb.id)}>Delete</button>
                 </td>
                 </tr>
             </tbody>

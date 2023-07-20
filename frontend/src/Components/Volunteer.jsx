@@ -4,13 +4,13 @@ import Validation from './SignupValidation';
 import Navbar from './Navbar';
 import axios from 'axios';
 
-const SignUp = () => {
+const Volunteer= () => {
     
 
     const [values, setValues] = useState({
         name: '',
         email: '',
-        password: ''
+        mobile: ''
     })
 
     const navigate =useNavigate();
@@ -24,7 +24,7 @@ const SignUp = () => {
     const handleSubmit =(event) =>{
         event.preventDefault();
         setErrors(Validation(values));
-        if(errors.name === "" && errors.email === "" && errors.password === ""){
+        if(errors.name === "" && errors.email === "" && errors.mobile === ""){
             axios.post('http://localhost:8081/signup', values)
             .then(res => {
                 navigate('/');
@@ -36,13 +36,13 @@ const SignUp = () => {
 
 
     return (
-        <div id='signup'>
+        <div id='volunteer'>
             <Navbar/> 
         
             
             <div className='d-flex justify-content-center align-items-center bg-gradient-light vh-100'>
             <div className='bg-secondary p-3 rounded w-25'>
-                <h2>Sign Up</h2>
+                <h2>Volunteer with Us</h2>
                 <form action='' onSubmit={handleSubmit}>
                     <div className='mb-3'>
                         <label htmlFor='name'><strong>Name</strong></label>
@@ -58,14 +58,26 @@ const SignUp = () => {
                     </div>
 
                     <div className='mb-3'>
-                        <label htmlFor='password'><strong>Password</strong></label>
-                        <input type='password' placeholder='Enter Password' name='password'
+                        <label htmlFor='city'><strong>City</strong></label>
+                        <input type='city' placeholder='Enter City' name='city'
                          onChange={handleInput} className='form-control rounded-0'/>
-                         {errors.password && <span className='text-danger'> {errors.password}</span>}
+                         
                     </div>
-                    <button type='submit' className='btn btn-success w-100 rounded-0'><strong>Sign up</strong></button>
-                    <p>Please accept the terms and Conditions </p>
-                    <Link to="/login" className='btn btn-default border w-100 bg-white rounded-0 text-decoration-none'><strong>Login</strong></Link>
+
+                    
+
+                    <div className='mb-3'>
+                        <label htmlFor='mobile'><strong>Cell number</strong></label>
+                        <input type='mobile' placeholder='Enter Cell No' name='mobile'
+                         onChange={handleInput} className='form-control rounded-0'/>
+                         {errors.mobile && <span className='text-danger'> {errors.mobile}</span>}
+                    </div>
+            
+                          <p class='text-white bg-dark'>Please accept the terms and Conditions </p>
+                           
+                    <button type='submit' className='btn btn-success w-100 rounded-0'><strong>Submit form</strong></button>
+                    
+                    
                 </form>
             </div>
         </div>
@@ -78,4 +90,4 @@ const SignUp = () => {
     );
 }
 
-export default SignUp;
+export default Volunteer;

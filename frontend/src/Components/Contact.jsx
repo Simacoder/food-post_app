@@ -6,7 +6,7 @@ const Contact = () => {
             <h3>Send Us Email</h3>
             <div className='contact-input'>
                 <input type='email' placeholder ='example@foodpost.com'/>
-                <a href='#'> Contact</a>
+                <a href='#' className='text-decoration-none'> Contact</a>
             </div>
             
         </div>
