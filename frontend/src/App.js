@@ -29,7 +29,7 @@ function App() {
       
       <About image={aboutimage} title='Sharing is caring' button='Get the App'/>
       <Dashboard/>
-      <About image={aboutimage1} title='Download and Get te App now' button='Download'/>
+      <About image={aboutimage1} title='Download and Get the App now' button='Download'/>
       <Contact/>
     
       
